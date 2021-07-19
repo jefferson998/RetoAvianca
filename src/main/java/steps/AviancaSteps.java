@@ -131,7 +131,7 @@ public class AviancaSteps {
         listaSoloIda.add(message3Ida);
         clicEnElemento(AviancaHomePage.getTxtFechaDestinoSoloIda());
         JavascriptExecutor jse = (JavascriptExecutor)SeleniumWebDriver.driver;
-        
+
         AviancaHomePage.setBtnFechaCalendarioSoloIda(lecturaExcel.get(index).get("FechaIda").split("-")[0].replaceAll("01", "1").replaceAll("02", "2").replaceAll("03", "3").replaceAll("04", "4").replaceAll("05", "5").replaceAll("06", "6").replaceAll("07", "7").replaceAll("08", "8").replaceAll("09", "9"), lecturaExcel.get(index).get("FechaIda").split("-")[1].replaceAll("01", "1").replaceAll("02", "2").replaceAll("03", "3").replaceAll("04", "4").replaceAll("05", "5").replaceAll("06", "6").replaceAll("07", "7").replaceAll("08", "8").replaceAll("09", "9"), lecturaExcel.get(index).get("FechaIda").split("-")[2]);
         clicEnElemento(AviancaHomePage.getBtnFechaCalendarioSoloIda());
         String message4Ida=lecturaExcel.get(index).get("FechaIda");
@@ -264,8 +264,9 @@ public class AviancaSteps {
         JFrame frame = new JFrame(name);
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
-        JLabel label = new JLabel("<html><h1>Resumen de vuelo</h1>" +
-                "<ul><li>El vuelo es de tipo "+message1+"</li>" +
+        JLabel label = new JLabel("<html><h1>Vuelo Seleccionado:</h1>" +
+                "<ul><li>&gt;Aquí el vuelo que se\n" +
+                "seleccionó&gt;. "+message1+"</li>" +
                 "<li>El origen del vuelo es >> "+message2+"</li>" +
                 "<li>El destino del vuelo es >> "+message3+"</li>" +
                 "<li>La fecha de ida del vuelo es >> "+message4+"</li>" +
@@ -277,22 +278,24 @@ public class AviancaSteps {
         frame.add(panel);
         frame.setSize(500, 250);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         getSaveSnapShot(panel,"IdaYVuelta.png");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Thread.sleep(5000);
+        frame.dispose();
+
 
     }
     public void frameSoloIda(String name,String message1, String message2, String message3, String message4,String message5 ) throws Exception {
         JFrame frame = new JFrame(name);
         JPanel panel = new JPanel();
         panel.setLayout(new FlowLayout());
-        JLabel label = new JLabel("<html><h1>Resumen de vuelo</h1>" +
+        JLabel label = new JLabel("<html><h1>Vuelo Seleccionado:</h1>" +
                 "<ul><li>El vuelo es de tipo "+message1+"</li>" +
                 "<li>El origen del vuelo es >> "+message2+"</li>" +
                 "<li>El destino del vuelo es >> "+message3+"</li>" +
                 "<li>La fecha de ida del vuelo es >> "+message4+"</li>"  +
                 "<li>Se selecciono la categoria  "+message5+"  del vuelo</li></html>");
-
         panel.add(label);
         frame.add(panel);
         frame.setSize(500, 250);
@@ -300,6 +303,8 @@ public class AviancaSteps {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         getSaveSnapShot(panel,"SoloIda.png");
+        Thread.sleep(5000);
+        frame.dispose();
 
     }
 }
