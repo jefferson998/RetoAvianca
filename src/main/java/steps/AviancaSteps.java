@@ -131,13 +131,11 @@ public class AviancaSteps {
         listaSoloIda.add(message3Ida);
         clicEnElemento(AviancaHomePage.getTxtFechaDestinoSoloIda());
         JavascriptExecutor jse = (JavascriptExecutor)SeleniumWebDriver.driver;
-        jse.executeScript("window.scrollBy(0,750)","");
+        
         AviancaHomePage.setBtnFechaCalendarioSoloIda(lecturaExcel.get(index).get("FechaIda").split("-")[0].replaceAll("01", "1").replaceAll("02", "2").replaceAll("03", "3").replaceAll("04", "4").replaceAll("05", "5").replaceAll("06", "6").replaceAll("07", "7").replaceAll("08", "8").replaceAll("09", "9"), lecturaExcel.get(index).get("FechaIda").split("-")[1].replaceAll("01", "1").replaceAll("02", "2").replaceAll("03", "3").replaceAll("04", "4").replaceAll("05", "5").replaceAll("06", "6").replaceAll("07", "7").replaceAll("08", "8").replaceAll("09", "9"), lecturaExcel.get(index).get("FechaIda").split("-")[2]);
-
         clicEnElemento(AviancaHomePage.getBtnFechaCalendarioSoloIda());
         String message4Ida=lecturaExcel.get(index).get("FechaIda");
         listaSoloIda.add(message4Ida);
-        jse.executeScript("window.scrollBy(0,-350)","");
         clicEnElemento(AviancaHomePage.getBtnPasajeroSoloIda());
 
         for (int i = 0; i < Integer.parseInt(lecturaExcel.get(index).get("Pasajero_niño")); i++) {
@@ -167,8 +165,8 @@ public class AviancaSteps {
             e.printStackTrace();
         }
         for (int i = 0; i < lecturaExcel.size(); i++) {
-            System.out.println(lecturaExcel.get(i).get("Opcion"));
-            switch (lecturaExcel.get(i).get("Opcion")) {
+            System.out.println(lecturaExcel.get(i).get("Option"));
+            switch (lecturaExcel.get(i).get("Option")) {
                 case "Ida y vuelta":
                     buscarVueloIdaYVuelta(i);
                     break;
