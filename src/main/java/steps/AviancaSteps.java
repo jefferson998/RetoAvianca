@@ -62,9 +62,9 @@ public class AviancaSteps {
 
     public void buscarVueloIdaYVuelta(int index) throws Exception {
 
-        AviancaHomePage.setBtnOpcionVuelo(lecturaExcel.get(index).get("Opcion"));
+        AviancaHomePage.setBtnOpcionVuelo(lecturaExcel.get(index).get("Option"));
         clicEnElemento(AviancaHomePage.getBtnOpcionVuelo());
-        String message1=lecturaExcel.get(index).get("Opcion");
+        String message1=lecturaExcel.get(index).get("Option");
         listaIdaYVuelta.add(message1);
         clicEnElemento(AviancaHomePage.getTxtCampoDesdeIdaYVuelta());
         escribirEnTexto(AviancaHomePage.getTxtCampoDesdeIdaYVuelta(), lecturaExcel.get(index).get("Desde"));
@@ -115,9 +115,9 @@ public class AviancaSteps {
     }
 
     public void buscarVueloSoloIda(int index) throws Exception {
-        AviancaHomePage.setBtnOpcionVuelo(lecturaExcel.get(index).get("Opcion"));
+        AviancaHomePage.setBtnOpcionVuelo(lecturaExcel.get(index).get("Option"));
         clicEnElemento(AviancaHomePage.getBtnOpcionVuelo());
-        String message1Ida=lecturaExcel.get(index).get("Opcion");
+        String message1Ida=lecturaExcel.get(index).get("Option");
         listaSoloIda.add(message1Ida);
         clicEnElemento(AviancaHomePage.getTxtCampoDesdeSoloIda());
         escribirEnTexto(AviancaHomePage.getTxtCampoDesdeSoloIda(), lecturaExcel.get(index).get("Desde"));
@@ -162,7 +162,7 @@ public class AviancaSteps {
     public void buscarVuelo() throws Exception {
         clicEnElemento(AviancaHomePage.getBtnCookies());
         try {
-            lecturaExcel = Excel.readExcel("C:\\Users\\pazje\\Desktop\\projectsIntelije\\AviancaViajes.xlsx", "Informacion");
+            lecturaExcel = Excel.readExcel("C:\\Users\\pazje\\Desktop\\projectsIntelije\\RetoAvianca\\AviancaViajes.xlsx", "Informacion");
         } catch (IOException e) {
             e.printStackTrace();
         }
